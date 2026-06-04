@@ -1,0 +1,22 @@
+@model School
+@{
+    ViewData["Title"] = "Удалить школу";
+    bool hasStudents = ViewBag.HasStudents is true;
+}
+<h1>Удаление школы</h1>
+<div class="form-card">
+    <p>Школа: <strong>@Model.Name</strong></p>
+    @if (hasStudents)
+    {
+        <div class="alert error">Удаление запрещено: в школе есть связанные ученики.</div>
+        <a class="button" asp-action="Index">Назад</a>
+    }
+    else
+    {
+        <p>Подтвердите удаление записи.</p>
+        <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="form-actions">
+            <button class="button danger" type="submit">Удалить</button>
+            <a class="button" asp-action="Index">Отмена</a>
+        </form>
+    }
+</div>

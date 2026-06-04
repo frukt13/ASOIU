@@ -1,0 +1,55 @@
+@model ReportsViewModel
+@{
+    ViewData["Title"] = "Отчёт";
+}
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">LINQ-отчёт</p>
+        <h1>Отчёт по успеваемости учеников</h1>
+    </div>
+</div>
+<section class="report-section">
+    <h2>1. Полный список учеников</h2>
+    <p>Записи отсортированы по ФИО ученика. Названия школ загружены через <code>Include</code>.</p>
+    <table>
+        <thead>
+            <tr><th>ФИО ученика</th><th>Школа</th><th>Средний балл</th></tr>
+        </thead>
+        <tbody>
+        @foreach (StudentReportRow row in Model.Students)
+        {
+            <tr><td>@row.StudentName</td><td>@row.SchoolName</td><td>@row.AverageGrade.ToString("F2")</td></tr>
+        }
+        </tbody>
+    </table>
+</section>
+<section class="report-section">
+    <h2>2. Количество учеников по школам</h2>
+    <p>Группировка выполнена средствами LINQ: <code>GroupBy</code> и <code>Count</code>.</p>
+    <table>
+        <thead>
+            <tr><th>Школа</th><th>Количество учеников</th></tr>
+        </thead>
+        <tbody>
+        @foreach (SchoolCountReportRow row in Model.SchoolCounts)
+        {
+            <tr><td>@row.SchoolName</td><td>@row.StudentCount</td></tr>
+        }
+        </tbody>
+    </table>
+</section>
+<section class="report-section">
+    <h2>3. Средний балл учеников по школам</h2>
+    <p>Группировка выполнена средствами LINQ: <code>GroupBy</code>, <code>Average</code> и <code>OrderByDescending</code>.</p>
+    <table>
+        <thead>
+            <tr><th>Школа</th><th>Средний балл</th></tr>
+        </thead>
+        <tbody>
+        @foreach (SchoolAverageReportRow row in Model.SchoolAverages)
+        {
+            <tr><td>@row.SchoolName</td><td>@row.AverageGrade.ToString("F2")</td></tr>
+        }
+        </tbody>
+    </table>
+</section>

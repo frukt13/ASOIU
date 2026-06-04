@@ -1,0 +1,41 @@
+@model IReadOnlyList<School>
+@{
+    ViewData["Title"] = "Школы";
+}
+<div class="page-heading">
+    <div>
+        <p class="eyebrow">Справочная таблица</p>
+        <h1>Школы</h1>
+    </div>
+    <a class="button primary" asp-action="Create">Добавить школу</a>
+</div>
+@if (TempData["SuccessMessage"] is string success)
+{
+    <div class="alert success">@success</div>
+}
+@if (TempData["ErrorMessage"] is string error)
+{
+    <div class="alert error">@error</div>
+}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название школы</th>
+            <th class="actions">Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (School school in Model)
+    {
+        <tr>
+            <td>@school.Id</td>
+            <td>@school.Name</td>
+            <td class="actions">
+                <a asp-action="Edit" asp-route-id="@school.Id">Изменить</a>
+                <a class="danger-link" asp-action="Delete" asp-route-id="@school.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

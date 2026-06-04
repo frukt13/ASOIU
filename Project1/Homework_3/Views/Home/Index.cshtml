@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Главная";
+}
+<section class="hero">
+    <p class="eyebrow">Домашнее задание №3 · вариант 26</p>
+    <h1>Школы и ученики</h1>
+    <p>Веб-приложение на ASP.NET Core MVC для работы со справочником школ, сведениями об учениках и LINQ-отчётом по среднему баллу успеваемости.</p>
+</section>
+<section class="card-grid">
+    <a class="card" asp-controller="Schools" asp-action="Index">
+        <h2>Школы</h2>
+        <p>CRUD справочной таблицы и запрет удаления школы со связанными учениками.</p>
+    </a>
+    <a class="card" asp-controller="Students" asp-action="Index">
+        <h2>Ученики</h2>
+        <p>CRUD основной таблицы, выбор школы из списка и проверка среднего балла.</p>
+    </a>
+    <a class="card" asp-controller="Reports" asp-action="Index">
+        <h2>Отчёт</h2>
+        <p>Полный список, количество учеников и средний балл по школам.</p>
+    </a>
+</section>

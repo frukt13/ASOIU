@@ -1,0 +1,15 @@
+@model Student
+@{
+    ViewData["Title"] = "Удалить ученика";
+}
+<h1>Удаление ученика</h1>
+<div class="form-card">
+    <p>Ученик: <strong>@Model.Name</strong></p>
+    <p>Школа: <strong>@Model.School?.Name</strong></p>
+    <p>Средний балл: <strong>@Model.AverageGrade.ToString("F2")</strong></p>
+    <p>Подтвердите удаление записи.</p>
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="form-actions">
+        <button class="button danger" type="submit">Удалить</button>
+        <a class="button" asp-action="Index">Отмена</a>
+    </form>
+</div>

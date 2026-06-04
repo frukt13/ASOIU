@@ -1,4 +1,11 @@
 <Solution>
+  <Project Path="Homework_1/Homework_1.csproj" />
   <Project Path="Homework_2/Homework_2.csproj" Id="83aa1dd8-aa01-46fc-ad96-084c68c621d6" />
-  <Project Path="Project1/Homework_1.csproj" />
+  <Project Path="Homework_3/Homework_3.csproj" />
+  <Project Path="Sem1/Sem1.csproj" />
+  <Project Path="Sem2/Sem2.csproj" />
+  <Project Path="Sem3/Sem3.csproj" />
+  <Project Path="Sem4/Sem4.csproj" />
+  <Project Path="Sem5/Sem5.csproj" />
+  <Project Path="Sem6/Sem6.csproj" />
 </Solution>
